@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,12 +38,14 @@ import java.util.List;
 import static com.example.filippocenonfolo.myapplication.Constants.URL_TOURNAMENT_DATA;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private TextView textViewName, textViewEmail;
+    private Button buttonNewTournament;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<ListItem> listItems;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +78,15 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(getApplicationContext(), LoginActivity.class));
         }
 
+        buttonNewTournament = (Button) findViewById(R.id.buttonNewTournament);
+        buttonNewTournament.setOnClickListener(this);
+        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiperefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            }
+        });
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(manager);
@@ -81,6 +95,7 @@ public class MainActivity extends AppCompatActivity
         adapter = new ListAdapter(listItems, this);
         recyclerView.setAdapter(adapter);
         loadRecyclerViewData();
+
     }
 
     @Override
@@ -125,7 +140,7 @@ public class MainActivity extends AppCompatActivity
 
                             for (int i = 0; i < array.length(); i++) {
                                 JSONObject o = array.getJSONObject(i);
-                                ListItem item = new ListItem(o.getString("name"),o.getString("place"));
+                                ListItem item = new ListItem(o.getInt("id_torneo"), o.getInt("id_utente"),o.getInt("completo"),o.getInt("formato"),o.getInt("fase") ,o.getString("nome"),o.getString("luogo"));
                                 listItems.add(item);
                             }
 
@@ -195,4 +210,13 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonNewTournament) {
+            startActivity(new Intent(this, CreateTournamentActivity.class));
+        }
+    }
+
+
 }

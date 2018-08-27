@@ -23,7 +23,18 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CreateTournamentActivity"
+            android:label="@string/title_activity_create_tournament" />
+        <activity
+            android:name=".TournamentDataActivity"
+            android:label="@string/title_activity_tournament_data"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AddTeamActivity" />
+        <activity android:name=".GenerateGroupsActivity" />
+        <activity android:name=".UpdateMatchActivity" />
+        <activity android:name=".NonCompleteTournamentActivity"></activity>
     </application>
 
 </manifest>

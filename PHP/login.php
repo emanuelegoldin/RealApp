@@ -21,7 +21,7 @@ if(isset($_POST['username']) && isset($_POST['password']))
     else {
 		$tmp = login($_POST['username'], $_POST['password']);
 		$response['error'] = false;
-		$response['id'] = $tmp['id_user'];
+		$response['id'] = $tmp['id_utente'];
 		$response['username'] = $tmp['username'];
 		$response['email'] = $tmp['email'];
 	}

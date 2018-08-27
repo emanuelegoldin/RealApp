@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swiperefreshTab1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/ScrollView"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayoutMatches"
+                android:padding="16dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textViewGroupA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Girone A"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textViewGroupB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Girone B"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textViewGroupC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Girone C"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupC"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textViewGroupD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Girone D"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textViewGroupE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textViewGroupF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupF"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textViewGroupG"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupG"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textViewGroupH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerViewGroupH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

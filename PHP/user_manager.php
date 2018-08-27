@@ -8,8 +8,8 @@ function login($username, $password)
     // Check username existance
     $db = new mysqli($GLOBALS['mysql_server'], $GLOBALS['mysql_user'], $GLOBALS['mysql_pass'], $GLOBALS['mysql_db']);
 
-    if($login_stmt = $db->prepare("SELECT * FROM users WHERE username = ?"))
-    {
+    if($login_stmt = $db->prepare("SELECT * FROM Utenti WHERE username = ?"))
+    {	
         $login_stmt->bind_param("s", $username);
         $login_stmt->execute();
 
@@ -17,7 +17,7 @@ function login($username, $password)
 
         // Check if we have 1 and only 1 row
         if ($login_result->num_rows === 0 || $login_result->num_rows > 1)
-        {
+        {	
             $db->close();
 
             return false;
@@ -26,10 +26,10 @@ function login($username, $password)
         // Check user password
         $user_row = $login_result->fetch_assoc();
 
-        $user_password_hash = $user_row['password'];
+        $user_password_hash = $user_row['psw'];
 
         if (!password_verify($password, $user_password_hash))
-        {
+        {	
             $db->close();
 
             return false;
@@ -50,7 +50,7 @@ function register($name, $surname, $username, $password, $email)
 {	
     $db = new mysqli($GLOBALS['mysql_server'], $GLOBALS['mysql_user'], $GLOBALS['mysql_pass'], $GLOBALS['mysql_db']);
 	
-    if($reg_stmt = $db->prepare("INSERT INTO users (name, surname, username, password, email) VALUES (?, ?, ?, ?, ?)"))
+    if($reg_stmt = $db->prepare("INSERT INTO Utenti (nome, cognome, username, psw, email) VALUES (?, ?, ?, ?, ?)"))
     {	
         $reg_stmt->bind_param("sssss", $name, $surname, $username, password_hash($password, PASSWORD_DEFAULT), $email);
         $reg_stmt->execute();
@@ -81,7 +81,7 @@ function username_exists($username)
 {
     $db = new mysqli($GLOBALS['mysql_server'], $GLOBALS['mysql_user'], $GLOBALS['mysql_pass'], $GLOBALS['mysql_db']);
 
-    if($user_stmt = $db->prepare("SELECT id_user FROM users WHERE username = ?"))
+    if($user_stmt = $db->prepare("SELECT id_utente FROM Utenti WHERE username = ?"))
     {
         $user_stmt->bind_param("s", $username);
         $user_stmt->execute();

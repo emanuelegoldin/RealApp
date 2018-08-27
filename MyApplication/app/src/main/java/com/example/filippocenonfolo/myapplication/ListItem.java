@@ -2,19 +2,50 @@ package com.example.filippocenonfolo.myapplication;
 
 public class ListItem {
 
-    private String head;
-    private String description;
+    private int id;
+    private int idCreator;
+    private int complete;
+    private int format;
+    private int phase;
+    private String name;
+    private String place;
 
-    public ListItem(String head, String description) {
-        this.head = head;
-        this.description = description;
+    public ListItem(int id, int idCreator, int complete, int format, int phase, String name, String place) {
+        this.id = id;
+        this.idCreator = idCreator;
+        this.complete = complete;
+        this.format = format;
+        this.phase = phase;
+        this.name = name;
+        this.place = place;
     }
 
-    public String getHead() {
-        return head;
+    public int getId() {
+        return id;
     }
 
-    public String getDescription() {
-        return description;
+    public int getIdCreator() {
+        return idCreator;
     }
+
+    public int getComplete() {
+        return complete;
+    }
+
+    public int getFormat() {
+        return format;
+    }
+
+    public int getPhase() {
+        return phase;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
 }

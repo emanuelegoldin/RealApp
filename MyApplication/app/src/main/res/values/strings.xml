@@ -7,4 +7,14 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_create_tournament">CreateTournamentActivity</string>
+    <string name="title_activity_tournament_data">TournamentDataActivity</string>
+    <string name="tab_text_1">Partite</string>
+    <string name="tab_text_2">Classifica</string>
+    <string name="octave">Ottavi</string>
+    <string name="quarter">Quarti</string>
+    <string name="semi">Semifinali</string>
+    <string name="final_match">Finale</string>
+    <string name="tab_text_3">Fase finale</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
