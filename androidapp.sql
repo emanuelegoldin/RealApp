@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Creato il: Ago 27, 2018 alle 14:35
+-- Creato il: Ago 29, 2018 alle 13:33
 -- Versione del server: 5.7.22
 -- Versione PHP: 7.1.16
 
@@ -49,6 +49,59 @@ CREATE TABLE `Gironi` (
   `nome_squadra` varchar(32) NOT NULL,
   `punteggio_squadra` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Gironi`
+--
+
+INSERT INTO `Gironi` (`id_torneo`, `id_girone`, `nome_squadra`, `punteggio_squadra`) VALUES
+(1, 0, 'Bosio', 6),
+(1, 0, 'Castelletto', 7),
+(1, 0, 'Cremolino', 1),
+(1, 0, 'Tagliolo', 5),
+(1, 1, 'Capriata', 1),
+(1, 1, 'Lerma', 3),
+(1, 1, 'Rocca', 0),
+(1, 1, 'Trisobbio', 1),
+(1, 2, 'Carpeneto', 0),
+(1, 2, 'Casaleggio', 0),
+(1, 2, 'Molare', 0),
+(1, 2, 'Rossiglione', 0),
+(1, 3, 'Belforte', 0),
+(1, 3, 'Campo', 0),
+(1, 3, 'Mornese', 0),
+(1, 3, 'Silvano', 0);
+
+--
+-- Trigger `Gironi`
+--
+DELIMITER $$
+CREATE TRIGGER `cambio_fase` AFTER INSERT ON `Gironi` FOR EACH ROW BEGIN	
+	UPDATE Torneo SET Torneo.fase = 1 WHERE NEW.id_torneo = Torneo.id_torneo;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Struttura della tabella `Immagini`
+--
+
+CREATE TABLE `Immagini` (
+  `id_immagine` int(11) NOT NULL,
+  `nome` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Immagini`
+--
+
+INSERT INTO `Immagini` (`id_immagine`, `nome`) VALUES
+(1, 'ciao'),
+(2, 'ciao8'),
+(3, 'ciao8'),
+(4, 'eccolo');
 
 -- --------------------------------------------------------
 
@@ -172,6 +225,36 @@ CREATE TABLE `Partite_girone` (
   `gol_squadra_1` int(11) DEFAULT NULL,
   `gol_squadra_2` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dump dei dati per la tabella `Partite_girone`
+--
+
+INSERT INTO `Partite_girone` (`id_torneo`, `id_girone`, `id_partita`, `nome_squadra_1`, `nome_squadra_2`, `gol_squadra_1`, `gol_squadra_2`) VALUES
+(1, 0, 0, 'Tagliolo', 'Bosio', 2, 1),
+(1, 0, 1, 'Castelletto', 'Cremolino', 3, 0),
+(1, 0, 2, 'Tagliolo', 'Castelletto', 1, 1),
+(1, 0, 3, 'Bosio', 'Cremolino', 4, 1),
+(1, 0, 4, 'Tagliolo', 'Cremolino', 3, 3),
+(1, 0, 5, 'Bosio', 'Castelletto', 5, 4),
+(1, 1, 0, 'Lerma', 'Rocca', 4, 2),
+(1, 1, 1, 'Capriata', 'Trisobbio', 1, 1),
+(1, 1, 2, 'Lerma', 'Capriata', -1, -1),
+(1, 1, 3, 'Rocca', 'Trisobbio', -1, -1),
+(1, 1, 4, 'Lerma', 'Trisobbio', -1, -1),
+(1, 1, 5, 'Rocca', 'Capriata', -1, -1),
+(1, 2, 0, 'Casaleggio', 'Molare', -1, -1),
+(1, 2, 1, 'Rossiglione', 'Carpeneto', -1, -1),
+(1, 2, 2, 'Casaleggio', 'Rossiglione', -1, -1),
+(1, 2, 3, 'Molare', 'Carpeneto', -1, -1),
+(1, 2, 4, 'Casaleggio', 'Carpeneto', -1, -1),
+(1, 2, 5, 'Molare', 'Rossiglione', -1, -1),
+(1, 3, 0, 'Mornese', 'Silvano', -1, -1),
+(1, 3, 1, 'Campo', 'Belforte', -1, -1),
+(1, 3, 2, 'Mornese', 'Campo', -1, -1),
+(1, 3, 3, 'Silvano', 'Belforte', -1, -1),
+(1, 3, 4, 'Mornese', 'Belforte', -1, -1),
+(1, 3, 5, 'Silvano', 'Campo', -1, -1);
 
 --
 -- Trigger `Partite_girone`
@@ -325,38 +408,22 @@ CREATE TABLE `Squadre` (
 --
 
 INSERT INTO `Squadre` (`id_torneo`, `nome_squadra`, `id_utente`) VALUES
-(1, '1', 40),
-(1, '2', 41),
-(1, '3', 42),
-(1, '4', 43),
-(1, '5', 44),
-(1, '6', 45),
-(1, '7', 46),
-(1, '8', 47),
-(1, '9', 48),
-(1, '10', 49),
-(1, '11', 50),
-(1, '12', 51),
-(1, '13', 52),
-(1, '14', 53),
-(1, '15', 54),
-(1, '16', 55),
-(3, 'a', 7),
-(3, 'b', 8),
-(3, 'c', 9),
-(3, 'd', 10),
-(3, 'e', 11),
-(3, 'f', 12),
-(3, 'g', 13),
-(3, 'h', 14),
-(3, 'i', 15),
-(3, 'l', 16),
-(3, 'm', 17),
-(3, 'n', 18),
-(3, 'o', 19),
-(3, 'p', 20),
-(3, 'q', 21),
-(3, 'r', 22);
+(1, 'Tagliolo', 8),
+(1, 'Lerma', 9),
+(1, 'Casaleggio', 10),
+(1, 'Mornese', 11),
+(1, 'Bosio', 12),
+(1, 'Rocca', 13),
+(1, 'Molare', 14),
+(1, 'Silvano', 15),
+(1, 'Castelletto', 16),
+(1, 'Capriata', 17),
+(1, 'Rossiglione', 18),
+(1, 'Campo', 19),
+(1, 'Cremolino', 20),
+(1, 'Trisobbio', 21),
+(1, 'Carpeneto', 22),
+(1, 'Belforte', 23);
 
 --
 -- Trigger `Squadre`
@@ -407,16 +474,17 @@ CREATE TABLE `Utenti` (
   `username` varchar(32) NOT NULL,
   `nome` varchar(32) DEFAULT NULL,
   `cognome` varchar(32) DEFAULT NULL,
-  `email` varchar(32) DEFAULT NULL
+  `email` varchar(32) DEFAULT NULL,
+  `url_immagine` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dump dei dati per la tabella `Utenti`
 --
 
-INSERT INTO `Utenti` (`id_utente`, `psw`, `username`, `nome`, `cognome`, `email`) VALUES
-(5, '$2y$10$/FuGAhyvpaw9kA6PdIDJ9e/45OylTDCu0ZTYWeRM7fp52LvwKVLYe', 'cenno1996', 'filippo', 'cenonfolo', 'cenno@live.com'),
-(6, '$2y$10$iU/1JMjpw1iBgFwp1gQSouvyT3WteO8sR1QoB8Tzp.mLkwJf57S7y', 'riky98', 'Riccardo', 'Cenonfolo', 'riky@libero.it');
+INSERT INTO `Utenti` (`id_utente`, `psw`, `username`, `nome`, `cognome`, `email`, `url_immagine`) VALUES
+(5, '$2y$10$/FuGAhyvpaw9kA6PdIDJ9e/45OylTDCu0ZTYWeRM7fp52LvwKVLYe', 'cenno1996', 'filippo', 'cenonfolo', 'cenno@live.com', ''),
+(6, '$2y$10$iU/1JMjpw1iBgFwp1gQSouvyT3WteO8sR1QoB8Tzp.mLkwJf57S7y', 'riky98', 'Riccardo', 'Cenonfolo', 'riky@libero.it', '');
 
 --
 -- Indici per le tabelle scaricate
@@ -433,6 +501,12 @@ ALTER TABLE `Finali`
 --
 ALTER TABLE `Gironi`
   ADD PRIMARY KEY (`id_torneo`,`id_girone`,`nome_squadra`);
+
+--
+-- Indici per le tabelle `Immagini`
+--
+ALTER TABLE `Immagini`
+  ADD PRIMARY KEY (`id_immagine`);
 
 --
 -- Indici per le tabelle `Ottavi`
@@ -479,6 +553,12 @@ ALTER TABLE `Utenti`
 --
 -- AUTO_INCREMENT per le tabelle scaricate
 --
+
+--
+-- AUTO_INCREMENT per la tabella `Immagini`
+--
+ALTER TABLE `Immagini`
+  MODIFY `id_immagine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT per la tabella `Torneo`

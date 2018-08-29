@@ -75,7 +75,7 @@ public class GenerateGroupsActivity extends AppCompatActivity implements View.On
             createMatches();
         }
         if (view == buttonGoToData) {
-            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            Intent i = new Intent(getApplicationContext(), TournamentDataActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             getApplicationContext().startActivity(i);
         }

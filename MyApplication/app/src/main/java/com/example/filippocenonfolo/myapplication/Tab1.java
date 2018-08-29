@@ -127,7 +127,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -188,7 +188,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -250,7 +250,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -312,7 +312,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -374,7 +374,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -435,7 +435,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -497,7 +497,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
@@ -559,7 +559,7 @@ public class Tab1 extends Fragment {
         final int idTorneo = data.getInt("idTorneo");
 
         progressDialog.setMessage("Loading data...");
-        progressDialog.show();
+        //progressDialog.show();
 
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,

@@ -79,9 +79,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                     }
                     else if (listItem.getPhase() == 0 && listItem.getIdCreator() != creator) {
                         nonComplete(listItem.getId(), creator);
-                        Intent i4 = new Intent(view.getContext().getApplicationContext(), AddTeamActivity.class);
-                        i4.putExtra("idTorneo", listItem.getId());
-                        view.getContext().startActivity(i4);
+                        Toast.makeText(context.getApplicationContext(), "Iscrizioni chiuse", Toast.LENGTH_LONG).show();
                     }
                     else if (listItem.getPhase() > 0) {
                         Intent i5 = new Intent(view.getContext().getApplicationContext(), TournamentDataActivity.class);

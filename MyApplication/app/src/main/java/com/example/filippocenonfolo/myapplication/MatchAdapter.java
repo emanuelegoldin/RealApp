@@ -50,6 +50,7 @@ public class MatchAdapter extends RecyclerView.Adapter<MatchAdapter.ViewHolder> 
             @Override
             public void onClick(View view) {
 
+
                 Intent i = new Intent(view.getContext().getApplicationContext(), UpdateMatchActivity.class);
                 i.putExtra("idTorneo", match.getIdTorneo());
                 i.putExtra("idGirone", match.getIdGirone());

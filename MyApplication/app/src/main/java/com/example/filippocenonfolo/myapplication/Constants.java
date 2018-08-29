@@ -2,7 +2,7 @@ package com.example.filippocenonfolo.myapplication;
 
 public class Constants {
 
-    public static final String ROOT_URL = "http://192.168.0.107/~filippocenonfolo/app/";
+    public static final String ROOT_URL = "http://192.168.0.102/~filippocenonfolo/app/";
     public static final String URL_REGISTER = ROOT_URL+"registration.php";
     public static final String URL_LOGIN = ROOT_URL+"login.php";
     public static final String URL_TOURNAMENT_DATA = ROOT_URL+"tournament_data.php";
@@ -21,6 +21,7 @@ public class Constants {
     public static final String URL_GET_FINAL_TEAMS = ROOT_URL+"get_teams_final.php";
     public static final String URL_INSERT_MATCH_FINAL = ROOT_URL+"add_match_final.php";
     public static final String URL_GET_TEAM_BY_ID = ROOT_URL+"get_team_by_id.php";
+    public static final String URL_UPLOAD = ROOT_URL+"upload_image.php";
 
 
 }
